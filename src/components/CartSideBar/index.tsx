@@ -9,7 +9,7 @@ import { FaX } from 'react-icons/fa6'
 import { CartSideBarItem } from './CartItem'
 
 export function CartSideBar() {
-  const { cart, isCartOpen, toggleCart } = useCart()
+  const { cart, isCartOpen,  toggleCart } = useCart()
 
   return (
     <div className="h-max absolute">
@@ -67,9 +67,11 @@ export function CartSideBar() {
           {/* Cart Header End*/}
 
           {/* Cart Items */}
-          <div className="flex-1 overflow-y-auto"> {/* Use flex-1 to make this div take remaining space */}
+          <div className="flex-1 overflow-y-auto mx-3"> {/* Com o flex-1 ele vai pegar o espaço restante */}
             {cart.map((item, index) => (
-              <CartSideBarItem item={item} key={item.id} />
+              <div key={item.id} className='mb-3'>
+                <CartSideBarItem item={item} />
+              </div>
             ))}
           </div>
           {/* Cart Actions */}

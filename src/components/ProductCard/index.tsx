@@ -26,7 +26,7 @@ export default function ProductCard({
     <div className='border-2 rounded-md h-full bg-white
       w-full flex flex-col'>
       <div className={` ${isLoading ? 'skeleton' : ''} min-h-[40px] min-w-[40px] w-full flex items-center justify-center mt-3`}>
-        <Image className='bg-cover aspect-square' src={photo} width={200} height={200} alt={name} />
+        <Image className='bg-cover aspect-square' src={photo} width={150} height={150} alt={name} />
       </div>
       <div className='flex flex-col flex-grow justify-between p-2'>
         <div className='flex items-center justify-between mb-2'>

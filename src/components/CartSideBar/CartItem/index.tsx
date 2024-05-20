@@ -9,7 +9,7 @@ interface CartSideBarItemsProps {
 
 export function CartSideBarItem({item}: CartSideBarItemsProps) {
   
-  const { increaseQuantity, decreaseQuantity } = useCart();
+  const { increaseQuantity, decreaseQuantity, removeItem } = useCart();
   
   return (
     <div
@@ -30,6 +30,7 @@ export function CartSideBarItem({item}: CartSideBarItemsProps) {
                   justify-center 
                   cursor-pointer
                   "
+                  onClick={() => removeItem(item.id)}
       >
         &times;
       </div>

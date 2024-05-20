@@ -21,7 +21,7 @@ export function Navbar() {
               onClick={() => toggleCart()}
             >
               <FaShoppingCart />
-              <span>0</span>
+              <span>{cart.length}</span>
             </div>
             {isCartOpen && <CartSideBar />}
           </ul>

@@ -12,6 +12,7 @@ interface CartContextProps extends CartState {
   isCartOpen: boolean;
   increaseQuantity: (product: Product, quantity?: number) => void;
   decreaseQuantity: (Product: Product) => void;
+  removeItem: (id: number) => void;
   clearCart: () => void;
   toggleCart: () => void;
 }
@@ -24,6 +25,7 @@ export const CartContext = createContext<CartContextProps>({
   isCartOpen: false,
   increaseQuantity: () => { },
   decreaseQuantity: () => { },
+  removeItem: () => { },
   clearCart: () => { },
   toggleCart: () => { }
 })
@@ -58,6 +60,18 @@ export const CartProvider = ({ children }: CartProviderProps) => {
     
   }
 
+  const removeItem = (id: number) => {
+    setCart((prev: CartItem[]) => {
+      const foundProduct = prev.find(item => item.id === id);
+
+      if(foundProduct) {
+        return prev.filter(item => item.id !== foundProduct.id);
+      }
+
+      return prev
+    })
+  }
+
   const decreaseQuantity = (product: Product) => {
     setCart(prev => {
       return prev.map(item => item.id === product.id
@@ -79,6 +93,7 @@ export const CartProvider = ({ children }: CartProviderProps) => {
         cart,
         isCartOpen,
         toggleCart,
+        removeItem,
         increaseQuantity,
         decreaseQuantity,
         clearCart,

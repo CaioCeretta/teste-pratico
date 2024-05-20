@@ -3,6 +3,7 @@ import { Roboto } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Header/navbar";
 import { CartProvider } from "@/contexts/CartContext"; // Ensure this path is correct
+import Footer from "@/components/Footer";
 
 const roboto = Roboto({ weight: "400", subsets: ["latin"] });
 
@@ -23,6 +24,7 @@ export default function RootLayout({
           <div className="w-full mx-auto">
             <Navbar />
             {children}
+            <Footer />
           </div>
         </CartProvider>
       </body>
